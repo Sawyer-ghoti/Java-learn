@@ -15,7 +15,7 @@ public class Testing {
             e.printStackTrace();
         }
         System.out.println(date);
-        System.out.println(1);
+
     }
 }
 
