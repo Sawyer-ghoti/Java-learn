@@ -3,6 +3,7 @@ package Day1;
 public class Student {
     String name;
     String age;
+    String highte;
 
     public Student(String a,String b) {
         this.setAge(a);
