@@ -1,2 +1,2 @@
 # Java-learn
-Some demo in java while self-education
+Some demos in java while self-education
