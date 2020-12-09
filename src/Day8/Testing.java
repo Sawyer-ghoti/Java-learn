@@ -7,14 +7,9 @@ import java.util.Date;
 
 public class Testing {
     public static void main(String[] args) /*throws ParseException*/ {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
-        Date date = null;
-        try {
-            date = sdf.parse("1990-1010");
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        System.out.println(date);
+
+        System.out.println(1);
+        System.out.println(2);
 
     }
 }
