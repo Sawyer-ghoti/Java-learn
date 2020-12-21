@@ -29,20 +29,23 @@ public class Demo0WaitAndNotify {
             }
         }.start();
 
-        new Thread(){
+
+        new Thread() {
             @Override
             public void run() {
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                synchronized (obj){
-                    System.out.println("The chief cooked for 5 second then he serve the customer");
-                    obj.notify();
-                }
+
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    synchronized (obj) {
+                        System.out.println("The chief cooked for 5 second then he serve the customer");
+                        obj.notify();
+                    }
+
             }
-        }.start();
+            }.start();
 
     }
 }
