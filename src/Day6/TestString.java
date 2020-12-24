@@ -14,5 +14,10 @@ public class TestString {
         String reversedRes  = strX.reverse().toString();
         Boolean compareRes = (x+"").equals(reversedRes);
         System.out.println(compareRes);
+        char[] chars = {'1','2','4','s'};
+
+
+
+
     }
 }

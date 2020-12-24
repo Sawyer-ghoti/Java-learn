@@ -2,44 +2,42 @@ package Day11;
 
 public class LeetCodeLongestCommonPre {
     public static void main(String[] args) {
-        String[] strings = {"abandon", "about", "above"};
+        String[] strings = {"flower", "flow", "flight"};
         System.out.println(strings.length);
+        System.out.println(strings[0].charAt(2));
         System.out.println(longestCum(strings));
     }
 
-    public static String longestCum(String[] str) {
+    public static String longestCum(String[] strs) {
 
-        if (str.length==0){
+        if (strs.length==0){
             return "";
         }
         int minLen = Integer.MAX_VALUE;
-        for (int i = 0; i < str.length; i++) {
-            if (str[i].length()<minLen){
-                minLen=str[i].length();
+        for (int i = 0; i < strs.length; i++) {
+            if (strs[i].length()<minLen){
+                minLen=strs[i].length();
             }
         }
         if (minLen==0){
             return "";
         }
 
-        int ans = 0;
-        String comStr = new String();
-        comStr = str[-0];
-        for (int i = 0; i < str.length; i++) {
-
-            for (int i1 = 0; i1 < minLen; i1++) {
-                if (str[0].charAt(i1) != str[i].charAt(i1)){
+        String comStr = strs[0];
+        for (int i = 0; i < strs.length; i++) {
+            int j = 0;
+            for(;j<comStr.length()&&j<strs[i].length();j++) {
+                if (comStr.charAt(j) != strs[i].charAt(j)) {
                     break;
                 }
-                ans++;
-                comStr = comStr.substring(0,ans);
             }
+            comStr = comStr.substring(0,j);
+            if (comStr.equals(""))
+                return comStr;
 
         }
-
         return comStr;
-
-        }
-
     }
+}
+
 
