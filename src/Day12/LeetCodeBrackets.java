@@ -1,36 +1,58 @@
 package Day12;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 public class LeetCodeBrackets {
     public static void main(String[] args) {
         String s = new String("{[()]}");
         isRightBracketsUsing(s);
+        System.out.println(isRightBracketsUsing(s));
     }
     private static boolean isRightBracketsUsing(String s){
-        char[] chars = s.toCharArray();
-        System.out.println(chars);
-        int numb = chars.length/2;
-        System.out.println(numb);
-        //空字符串默认正确
-        if (chars.length==0){
-            return true;
-        }
-        //单数个符号必是错误的
-        if (chars.length%2 != 0){
+//        int n = s.length();
+//        if (n%2!=0){
+//            return false;
+//        }
+//            Map<Character,Character> pairs = new HashMap<Character, Character>(){{
+//            put(')','(');
+//            put(']','[');
+//            put('}','{');
+//        }};
+//        Deque<Character> stack = new LinkedList<Character>();
+//        for (int i = 0; i < n; i++) {
+//            char ch = s.charAt(i);
+//            if (pairs.containsKey(ch)){
+//                if (stack.isEmpty() || stack.peek() != pairs.get(ch)){
+//                    return false;
+//                }
+//                stack.pop();
+//            } else {
+//                stack.push(ch);
+//            }
+//        }
+//        return stack.isEmpty();
+        int n = s.length();
+        if (n%2 != 0){
             return false;
         }
-        HashMap<Character,Character> bracketsSet = new HashMap<>();
-        bracketsSet.put('(',')');
-        bracketsSet.put('[',']');
-        bracketsSet.put('{','}');
-        System.out.println(bracketsSet);
-
-        if (bracketsSet.get(chars[numb]) != bracketsSet.get(chars[numb+1])){
-            return false;
+        Map<Character,Character> pairs = new HashMap<Character, Character>(){{
+            put(')','(');
+            put(']','[');
+            put('}','{');
+        }};
+        Deque<Character> stack = new LinkedList<Character>();
+        for (int i = 0; i < n; i++) {
+            char ch = s.charAt(i);
+            if (pairs.containsKey(ch)){
+                if (stack.isEmpty() || stack.peek() != pairs.get(ch)){
+                    return false;
+                }else
+                stack.pop();
+            }
+            else {
+                stack.push(ch);
+            }
         }
-
-        return true;
+        return stack.isEmpty();
     }
 }
